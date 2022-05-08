@@ -1,0 +1,151 @@
+Gherkin language
+
+Given- Pre Condition
+When- Actions we need to preform
+And- Supporting tag
+Then- Expected results
+
+Recap-
+What is framework?
+-- It is an organized structure of folders and packages which allows us to write clean and maintainable code
+
+Build Management tool.
+-- maven
+
+pom.xml is the main configuration file in maven project.
+
+main-- It is used to write the code for development
+test-- It is used to write the code to test the application
+    -- Java - for tech/coding we use resources
+
+
+Cucumber-- It supports BDD
+        -- We use gherkin language (plain english text) to write the scenarios
+        -- It works with junit
+
+Scenario-- It is a test case
+Given-- Pre-condition
+When-- Actions
+And-- Supporting tag
+Then-- Results
+
+US 12345 - Employee Search
+
+Scenario-- Search employee by id
+Given user is navigated to HRMS Application
+When user enters valid admin credentials
+And user clicks on login button
+And user navigates to employee list page
+When user enters valid employee id
+And clicks on search button
+Then user is able to see employee information
+
+Scenario-- Search employee by name
+Given user us navigated to HRMS Application
+When user enters valid admin credentials
+And user clicks on login button
+And user navigates to employee list page
+When user enters valid name
+And clicks on search button Then user is able to see employee information
+
+file where we write BDD scenarios
+
+Class 3
+Recap -
+
+We use feature file to write our scenarios
+--Search employee by id
+--Search employee by name
+
+In feature file we write scenarios using gherkin language
+--Given,When,And,Then, Scenario, Feature
+
+after feature file, we need to create step definitions
+-------------------------------------------------------------------------
+
+Class 4
+Recap -
+----------
+Common Methods class in our framework is used to write all the methods we will be using
+in the majority of scenarios(Code reuse-ability)
+
+sendText method, click etc
+
+In constants class we provide implicit wait, explicit wait values and test data path
+
+page object model is a design pattern
+According to page object model, we create page classes for all the screens available in the application
+------------------------------------------------------------------------------------------
+
+Class 5
+Recap -
+----------
+Creating multiple steps classes for multiple feature file
+
+Page Object Model design pattern
+
+in common method we are calling initializers method, this method is going to call the objects of page classes which will call the
+constructor and these constructors will initialize all the web elements
+--------------------------------------------------------------------------------------------------
+
+Class 6
+Recap -
+---------
+ Runner class- We use this class to execute test cases in cucumber
+
+ Cucumber options:
+ --features- path to feature file
+ --glue- to provide a path of steps definitions
+ --dryRun- it provides step definition to ass ib steps classes
+ --monochrome- if it is set to true it cleans the console
+ --tags- we use tags to execute scenarios in groups
+        -- here wre use OR and AND to execute scenarios from 2 or more different tags together
+
+Background: we take common steps from scenarios and put them in background
+
+Hooks: we use hooks to provide pre-condition and post condition to all the scenarios we always create hooks class in steps package
+
+Background vs. Hooks:
+background- it is applicable to one feature file
+hooks- it is
+-----------------------------------------------------------------------------------------------------
+
+Class 7
+Recap -
+-----------
+Hooks - to write pre-conditions and post conditions of the project, we use hooks
+@before and @after - 2 types of hooks we have in cucumber
+we always write hooks under steps package
+
+--
+Data driven testing part-
+- using examples table and scenario outline
+- using data table
+
+-----------------------------------------------------------------------------------------------------
+
+Class 8-9
+Recap -
+------------
+maven surefire plugin
+ to clean the project- mvn clean from cmd/terminal
+ to run the project- mvn test from cmd/terminal
+ override the tags from cmd- mvn clean verify -Dcucumber.filter.tags="@latest"
+
+ mvn clean-  cleans our target folder
+ mvn test- to execute our test cases
+ verify- verifies your code
+ package- convert you code to packages
+
+
+
+
+
+
+
+
+
+
+
+
+
